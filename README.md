@@ -10,7 +10,7 @@ git clone https://github.com/fenokingtr/alarmAPP.git
 ```
  
 2. Alarm Uygulaması klasörüne gidin:
-```console
+```
 cd alarmAPP
 ```
 3. Betiği çalıştırın ve alarm saat ve dakikalarını belirleyin:
