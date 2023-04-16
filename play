@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#
+
+# MP3 player
+
+#
+
+if [ -z "$1" ]; then
+
+    echo "Usage: play <mp3 file>"
+
+    exit 1
+
+fi
+
+if [ ! -f "$1" ]; then
+
+    echo "File not found: $1"
+
+    exit 1
+
+fi
+
+mpv "$1"
+
