@@ -38,7 +38,8 @@ Alarm çalana kadar bekleyin. Alarm çaldığında, rastgele bir müzik dosyası
 6. Eşleşmezse, kalan süre hesaplanır ve ekrana yazdırılır.
 
 7. sleep komutu, her bir saniyede bir döngünün tekrarlanmasını sağlar.
-
+# Kurulum hakkında
+Kurulum bittikten sonra dosya kendini imha edecek
 # Lisans
 Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakın.
 
