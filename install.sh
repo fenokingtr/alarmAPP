@@ -7,15 +7,13 @@ pkg install -y mpv figlet
 mv play /data/data/com.termux/files/usr/bin/
 mv alarm /data/data/com.termux/files/usr/bin/
 
-# Give execute permission to play and alarm scripts
+# çalışması için yetki 
 chmod 777 /data/data/com.termux/files/usr/bin/play
 chmod 777 /data/data/com.termux/files/usr/bin/alarm
 
 cat README.md
-chmod 777 .git/objects/pack/pack-848a3c143cf79ed66c1076eb2fb54b149438afdc.pack
-chmod 777 .git/objects/pack/pack-848a3c143cf79ed66c1076eb2fb54b149438afdc.idx
-rm .git/objects/pack/pack-848a3c143cf79ed66c1076eb2fb54b149438afdc.pack
-rm .git/objects/pack/pack-848a3c143cf79ed66c1076eb2fb54b149438afdc.idx
+chmod 777 .git/objects/pack/*
+rm .git/objects/pack/*
 cd
 rm -R alarmAPP
 echo " Kurulum Bitti Dosya imha edildi"
