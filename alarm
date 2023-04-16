@@ -1,121 +1,67 @@
 #!/bin/bash
 
 music_dir="/storage/emulated/0/Music"
-
 mp3_files=($music_dir/*.mp3)  # Klasördeki tüm .mp3 dosyalarını al
-
 selected_mp3=${mp3_files[$RANDOM % ${#mp3_files[@]}]}  # Rastgele bir mp3 dosyası seç
-
 play_command="play '$selected_mp3'"
 
 banner="figlet FenoKingTR"
-
 bannerhelp="figlet HELP"
-
 bannerkullanim='\nMPV, bir komut satiri ses oynatıcıdır ve asagidaki kontrolleri kullanır:
 
    • '\''q'\'': MPVyi kapatir.
-
    • '\''f'\'': Tam ekranda oynatir.
-
    • '\''space'\'': Oynatma / duraklatma arasinda geçiş yapar.
-
    • '\''j'\'': Geri sarar.
-
    • '\''k'\'': İleri sarar.
-
    • '\''h'\'': Geri sarar.
-
    • '\''l'\'': İleri sarar.
-
    • '\''m'\'': Sesi kapatır veya açar.
-
    • '\''9'\'': Sesi azaltır.
-
    • '\''0'\'': Sesi artırır.
-
    • '\''.'\'': Birkaç saniye ileri sarar.
-
    • '\'','\'': Birkaç saniye geri sarar.
-
 '
 
 eval $banner
-
 usage() {
-
     clear
-
     eval $bannerhelp
-
     echo "Kullanım: alarm [-h] [-s saat] [-d dakika]"
-
     echo "  -h      Yardım"
-
     echo "  -s      Saat Ayarı"
-
     echo "  -d      Dakika Ayarı"
-
     echo " "
-
     echo " BAŞLADIKTAN SONRA BAZI KOMBİNASYONLAR"
-
     echo "Daha fazla bilgi için https://mpv.io/manual/master/"
-
     echo -e "$bannerkullanim"
-
 }
 
 while getopts "hs:d:" option
-
 do
-
     case "${option}"
-
     in
-
         h) usage
-
            exit;;
-
         s) alarm_hour=${OPTARG};;
-
         d) alarm_minute=${OPTARG};;
-
         *) usage
-
            exit 1;;
-
     esac
-
 done
 
 while true
-
 do
-
     now=$(date +"%H:%M")
-
     if [ "$now" == "$alarm_hour:$alarm_minute" ]; then
-
         echo "Alarm çalıyor!"
-
         eval $play_command
-
         break
-
     else
-
         diff=$(($(date -d "$alarm_hour:$alarm_minute" +%s) - $(date -d "$now" +%s)))
-
         diff_hours=$(($diff / 3600))
-
         diff_minutes=$((($diff % 3600) / 60))
-
         echo "Alarm $diff_hours saat $diff_minutes dakika sonra çalacak."
-
     fi
-
     sleep 1
-
 done
