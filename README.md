@@ -39,3 +39,8 @@ Alarm çalana kadar bekleyin. Alarm çaldığında, rastgele bir müzik dosyası
 
 7. sleep komutu, her bir saniyede bir döngünün tekrarlanmasını sağlar.
 
+# Lisans
+Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasına bakın.
+
+
+
